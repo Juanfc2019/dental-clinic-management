@@ -8,7 +8,6 @@ public class UserInfoResponse {
 	private List<String> roles;
 	
 	public UserInfoResponse(Long id, String username, List<String> roles) {
-		super();
 		this.id = id;
 		this.username = username;
 		this.roles = roles;

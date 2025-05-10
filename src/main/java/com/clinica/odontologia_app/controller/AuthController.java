@@ -21,7 +21,6 @@ public class AuthController {
 	private final UserRepository userRepository;
 
 	public AuthController(UserRepository userRepository) {
-		super();
 		this.userRepository = userRepository;
 	}
 	

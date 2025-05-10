@@ -40,9 +40,9 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                                .requestMatchers("/api/auth/**").permitAll() //HttpMethod.OPTIONS, "/**", 
-                                .requestMatchers("/api/admin/**").hasRole("ADMIN") // "/api/private/**", 
-                                .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN") // "/api/public/**", 
+                                .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN") 
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
@@ -106,23 +106,5 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-    
-    /*
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-            .username("user")
-            .password("password")
-            .roles("USER")
-            .build();
-
-        UserDetails admin = User.withDefaultPasswordEncoder()
-            .username("admin")
-            .password("admin")
-            .roles("ADMIN")
-            .build();
-
-        return new InMemoryUserDetailsManager(user, admin);
-    }*/
     
 }
